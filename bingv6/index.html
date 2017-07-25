@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<title>Bike Map Example </title>
+	
+	<script type="text/javascript" src="jquery-1.3.1.min.js"></script>
+	<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2"></script>
+	<script type="text/javascript" src="bike-rack-mapping.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			setTimeout("mapHasLoaded()", 500);
+		});
+		function mapHasLoaded(){
+			if($('.MSVE_MapContainer').length == 1){
+				ZoomToCoords(40.91435897428694, -73.12369979918003);
+				$('#MSVE_navAction_container').css('z-index', '1');
+				}
+			else 
+				setTimeout("mapHasLoaded()", 500);
+		}
+    </script>
+</head>
+<body onLoad="GetMap();startList();">
+
+
+<div id='myMap' style="position:relative; width:585px; height:580px; float:left; margin-bottom:15px;"></div>		
+
+</body>
+</html>
